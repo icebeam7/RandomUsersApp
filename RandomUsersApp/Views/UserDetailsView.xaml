@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RandomUsersApp.Views.UserDetailsView"
+             xmlns:vm="clr-namespace:RandomUsersApp.ViewModels"
+             xmlns:model="clr-namespace:RandomUsersApp.Models"
+             x:DataType="vm:UserDetailsViewModel"
+             Title="{Binding User.username}">
+    <Grid Margin="10"
+          ColumnSpacing="10"
+          RowSpacing="10"
+          RowDefinitions="Auto,Auto,Auto,Auto"
+          ColumnDefinitions="*,2*">
+
+        <Image Grid.ColumnSpan="2"
+               Source="{Binding User.avatar}"
+               HorizontalOptions="Center"
+               WidthRequest="120"
+               HeightRequest="120"
+               Aspect="AspectFit"/>
+
+        <Label Grid.Row="1" Text="First Name"/>
+        <Label Grid.Row="2" Text="Last Name"/>
+        <Label Grid.Row="3" Text="Email"/>
+
+        <Label Grid.Row="1" Grid.Column="1" Text="{Binding User.FirstName}"/>
+        <Label Grid.Row="2" Grid.Column="1" Text="{Binding User.last_name}"/>
+        <Label Grid.Row="3" Grid.Column="1" Text="{Binding User.email}"/>
+
+    </Grid>
+
+</ContentPage>

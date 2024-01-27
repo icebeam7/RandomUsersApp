@@ -1,5 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using RandomUsersApp.Services;
+using RandomUsersApp.ViewModels;
+using RandomUsersApp.Views;
 
 namespace RandomUsersApp
 {
@@ -17,6 +19,12 @@ namespace RandomUsersApp
                 });
 
             builder.Services.AddSingleton<IUserService, UserService>();
+
+            builder.Services.AddTransient<UserListViewModel>();
+            builder.Services.AddTransient<UserListView>();
+
+            builder.Services.AddTransient<UserDetailsViewModel>();
+            builder.Services.AddTransient<UserDetailsView>();
 
 #if DEBUG
             builder.Logging.AddDebug();

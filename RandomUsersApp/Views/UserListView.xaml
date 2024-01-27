@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RandomUsersApp.Views.UserListView"
+             xmlns:vm="clr-namespace:RandomUsersApp.ViewModels"
+             xmlns:model="clr-namespace:RandomUsersApp.Models"
+             x:DataType="vm:UserListViewModel"             
+             Title="{Binding Title}">
+
+    <Grid Margin="10"
+          ColumnSpacing="10"
+          RowSpacing="10"
+          RowDefinitions="Auto,*">
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Users}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedUser}"
+                        SelectionChangedCommand="{Binding GoToDetailsCommand}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:User">
+                    <Grid HeightRequest="100"
+                          WidthRequest="300"
+                          ColumnDefinitions="Auto,*"
+                          VerticalOptions="Start">
+                        <Image Grid.Column="0"
+                               Source="{Binding avatar}"
+                               WidthRequest="80"
+                               HeightRequest="80"
+                               Aspect="AspectFit"/>
+
+                        <Label Grid.Column="1" 
+                               Text="{Binding username}"
+                               VerticalOptions="Center"
+                               TextColor="Blue"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </Grid>
+</ContentPage>

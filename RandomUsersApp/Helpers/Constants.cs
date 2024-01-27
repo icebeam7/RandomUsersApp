@@ -4,5 +4,6 @@
     {
         public const string RandomDataServer = "https://random-data-api.com/";
         public const string UsersEndpoint = "api/v2/users?size=10";
+        public const string UserDetailsRoute = "UserDetailsView";
     }
 }
